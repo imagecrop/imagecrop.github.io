@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>Image Cropper</title>
+  <link rel='shortcut icon' href='https://easycss.github.io/favicon/favicon.png' type='image/x-icon' />
+  <script src='tailwindcss.min.js'></script>
+  <style>
+    canvas {
+      max-width: 100%;
+      cursor: crosshair;
+    }
+    #dropzone.dragover {
+      border-color: #3b82f6;
+      background-color: #eff6ff;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Dropzone -->
+    <div
+      id="dropzone"
+      class="border-2 w-36 border-dashed border-gray-300 rounded-lg px-2 py-6 m-2 mb-4 bg-white hover:border-gray-400 cursor-pointer text-center"
+    >
+      <input
+        id="fileInput"
+        type="file"
+        accept="image/*"
+        multiple
+        class="hidden"
+      />
+
+      <div class="flex flex-col items-center gap-4">
+        <svg
+          class="-mt-2 w-8 h-8 text-gray-400"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <polyline
+            points="7 10 12 5 17 10"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></polyline>
+          <line
+            x1="12"
+            y1="5"
+            x2="12"
+            y2="19"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></line>
+        </svg>
+        <div>
+          <div class="text-sm font-medium">Click or drop images here</div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- IMAGE AREA -->
+<div class="-mt-36 flex flex-col items-center justify-center p-0">
+<div id="canvasContainer" class="mt-0 hidden flex-col items-center">
+    
+<div class="mb-2 flex w-full justify-between">
+  <button id="cropBtn"
+          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+    Crop
+  </button>
+  <button id="resetBtn"
+          class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
+    Reset
+  </button>
+  <button id="saveBtn"
+          class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 hidden">
+    Save
+  </button>
+</div>
+        
+    
+    <canvas id="imageCanvas" class="h-[85vh]"></canvas>
+
+
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
