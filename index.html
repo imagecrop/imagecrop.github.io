@@ -20,6 +20,11 @@
 </head>
 <body class="bg-gray-50">
 
+<div class="flex justify-start p-0">
+
+<!-- LEFT PANEL -->
+<div class="flex flex-col">
+
   <!-- Dropzone -->
     <div
       id="dropzone"
@@ -69,31 +74,50 @@
     </div>
 
 
-<!-- IMAGE AREA -->
-<div class="-mt-36 flex flex-col items-center justify-center p-0">
-<div id="canvasContainer" class="mt-0 hidden flex-col items-center">
-    
-<div class="mb-2 flex w-full justify-between">
-  <button id="cropBtn"
-          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-    Crop
-  </button>
-  <button id="resetBtn"
-          class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
-    Reset
-  </button>
-  <button id="saveBtn"
-          class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 hidden">
-    Save
-  </button>
+<!-- width and height inputs -->
+<div id="resizeControls" class="hidden ml-6 mt-0 flex flex-col gap-2">
+  <label class="text-gray-700">Width:</label>
+  <input type="number" id="resizeWidth" class="w-28 px-2 py-1 border rounded" />
+  <label class="text-gray-700">Height:</label>
+  <input type="number" id="resizeHeight" class="w-28 px-2 py-1 border rounded" />
 </div>
-        
-    
-    <canvas id="imageCanvas" class="h-[85vh]"></canvas>
 
 
+
+
+<!-- UTILITY BUTTONS -->
+<div id="buttonsContainer" class="hidden">
+  <div class="ml-6 mt-4 flex flex-col gap-2 justify-between">
+    <button id="cropBtn"
+            class="w-28 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+      Crop
+    </button>
+    <button id="resetBtn"
+            class="w-28 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
+      Reset
+    </button>
+    <button id="saveBtn"
+            class="w-28 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 hidden">
+      Save
+    </button>
   </div>
+</div>   
+
+<!-- \LEFT PANEL -->
 </div>
+
+
+
+<!-- MAIN PANEL -->
+  <div id="canvasContainer" class="flex-1 mt-2 hidden flex-col items-center">
+  <!-- IMAGE PREVIEW -->
+      <div class="h-[85vh]">
+        <canvas id="imageCanvas"></canvas>
+      </div>
+  </div>
+
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
